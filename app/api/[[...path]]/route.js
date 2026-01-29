@@ -7,6 +7,8 @@ import bcrypt from 'bcryptjs';
 import cloudinary from '@/lib/cloudinary';
 import { ObjectId } from 'mongodb';
 
+export const runtime = 'nodejs';
+
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
@@ -124,7 +126,7 @@ export async function GET(request, { params }) {
       return successResponse({ posts });
     }
 
-    // Admin: Get all contacts (kept for API compatibility, though UI is hidden)
+    // Admin: Get all contacts
     if (path === 'admin/contacts') {
       const session = await getSession();
       if (!session) return errorResponse('Unauthorized', 401);
@@ -405,6 +407,7 @@ export async function POST(request, { params }) {
         slug: formData.get('title')?.toLowerCase().replace(/[^a-z0-9]+/g, '-') || `post-${Date.now()}`,
         title: formData.get('title'),
         content: formData.get('content'),
+        excerpt: formData.get('excerpt'),
         author: formData.get('author') || 'Admin',
         image: imageUrl,
         active: formData.get('active') === 'true',
@@ -585,6 +588,7 @@ export async function PUT(request, { params }) {
       const updateData = {
         title: formData.get('title'),
         content: formData.get('content'),
+        excerpt: formData.get('excerpt'),
         author: formData.get('author') || 'Admin',
         active: formData.get('active') === 'true',
         updatedAt: new Date(),
