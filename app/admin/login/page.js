@@ -32,7 +32,7 @@ export default function AdminLogin() {
 
       if (res.ok) {
         toast.success('Login successful!');
-        router.push('/admin');
+        window.location.href = '/admin';
       } else {
         toast.error(data.error || 'Invalid credentials');
       }
