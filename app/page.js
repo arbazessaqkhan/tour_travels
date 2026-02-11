@@ -18,6 +18,12 @@ import {
 import { Badge } from '@/components/ui/badge';
 import { CldImage } from 'next-cloudinary';
 import { Quote, ScrollText } from 'lucide-react';
+import { Playfair_Display } from 'next/font/google';
+
+const heroDisplay = Playfair_Display({
+  subsets: ['latin'],
+  weight: ['500', '700'],
+});
 
 export default function Home() {
   const [tours, setTours] = useState([]);
@@ -181,9 +187,9 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-green-50">
+    <div className="min-h-screen bg-gradient-to-b from-[#070013] via-[#14012b] to-[#2b0658] text-white">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-[#1b1033]/95 via-[#2a0c4f]/95 to-[#1b1033]/95 backdrop-blur-xl border-b border-white/10 shadow-lg">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <motion.div
@@ -191,16 +197,16 @@ export default function Home() {
               animate={{ opacity: 1, x: 0 }}
               className="flex items-center space-x-2"
             >
-              <img src={'/logo.png'} alt="Waadi Kashmir" className="w-12 h-12 object-contain" />
+              <img src={'/logo.png'} alt="Waadi Kashmir" className="w-12 h-12 object-contain drop-shadow-[0_0_16px_rgba(244,244,255,0.45)]" />
               <div className="flex items-center gap-2">
                 <div>
-                  <h1 className="text-xl font-bold text-gray-900">Waadi Kashmir</h1>
-                  <p className="text-xs text-gray-600">Tour & Travels</p>
+                  <h1 className="text-xl font-semibold text-white tracking-wide">Waadi Kashmir</h1>
+                  <p className="text-xs text-white/70">Tour & Travels</p>
                 </div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 640 480"
-                  className="w-6 h-auto shadow-sm border border-gray-100 rounded-sm"
+                  className="w-6 h-auto shadow-sm border border-white/10 rounded-sm"
                   title="Proudly Indian"
                 >
                   <path fill="#f4c430" d="M0 0h640v160H0z" />
@@ -227,19 +233,19 @@ export default function Home() {
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-6">
-              <a href="#home" className="text-gray-700 hover:text-orange-500 transition">Home</a>
-              <a href="#tours" className="text-gray-700 hover:text-orange-500 transition">Tours</a>
-              <a href="#about" className="text-gray-700 hover:text-orange-500 transition">About</a>
-              <a href="#gallery" className="text-gray-700 hover:text-orange-500 transition">Gallery</a>
-              <a href="#booking" className="text-gray-700 hover:text-orange-500 transition">Book Now</a>
-              <Button onClick={handleCall} className="bg-gradient-to-r from-orange-500 to-green-500 hover:from-orange-600 hover:to-green-600">
+              <a href="#home" className="text-white/80 hover:text-white transition">Home</a>
+              <a href="#tours" className="text-white/80 hover:text-white transition">Tours</a>
+              <a href="#about" className="text-white/80 hover:text-white transition">About</a>
+              <a href="#gallery" className="text-white/80 hover:text-white transition">Gallery</a>
+              <a href="#booking" className="text-white/80 hover:text-white transition">Book Now</a>
+              <Button onClick={handleCall} className="bg-gradient-to-r from-[#a855f7] via-[#7c3aed] to-[#6366f1] hover:from-[#c084fc] hover:via-[#8b5cf6] hover:to-[#4f46e5] shadow-[0_0_30px_rgba(167,139,250,0.7)]">
                 <Phone className="w-4 h-4 mr-2" />
                 Call Now
               </Button>
             </div>
 
             {/* Mobile Menu Button */}
-            <button className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            <button className="md:hidden text-white" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
@@ -249,15 +255,15 @@ export default function Home() {
             <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="mt-4 pb-4 border-t pt-4 md:hidden"
+              className="mt-4 pb-4 border-t border-white/10 pt-4 md:hidden"
             >
-              <div className="flex flex-col space-y-3">
-                <a href="#home" className="text-gray-700 hover:text-orange-500" onClick={() => setMobileMenuOpen(false)}>Home</a>
-                <a href="#tours" className="text-gray-700 hover:text-orange-500" onClick={() => setMobileMenuOpen(false)}>Tours</a>
-                <a href="#about" className="text-gray-700 hover:text-orange-500" onClick={() => setMobileMenuOpen(false)}>About</a>
-                <a href="#gallery" className="text-gray-700 hover:text-orange-500" onClick={() => setMobileMenuOpen(false)}>Gallery</a>
-                <a href="#booking" className="text-gray-700 hover:text-orange-500" onClick={() => setMobileMenuOpen(false)}>Book Now</a>
-                <Button onClick={handleCall} className="bg-gradient-to-r from-orange-500 to-green-500">
+              <div className="flex flex-col space-y-3 text-white">
+                <a href="#home" className="text-white/80 hover:text-white" onClick={() => setMobileMenuOpen(false)}>Home</a>
+                <a href="#tours" className="text-white/80 hover:text-white" onClick={() => setMobileMenuOpen(false)}>Tours</a>
+                <a href="#about" className="text-white/80 hover:text-white" onClick={() => setMobileMenuOpen(false)}>About</a>
+                <a href="#gallery" className="text-white/80 hover:text-white" onClick={() => setMobileMenuOpen(false)}>Gallery</a>
+                <a href="#booking" className="text-white/80 hover:text-white" onClick={() => setMobileMenuOpen(false)}>Book Now</a>
+                <Button onClick={handleCall} className="bg-gradient-to-r from-[#a855f7] via-[#7c3aed] to-[#6366f1]">
                   <Phone className="w-4 h-4 mr-2" /> Call Now
                 </Button>
               </div>
@@ -268,7 +274,7 @@ export default function Home() {
 
       {/* Hero Section */}
       <section id="home" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-orange-100 via-blue-100 to-green-100 opacity-50" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#4c1d95]/35 via-[#1e1b4b]/70 to-[#020617]/90" />
         <div className="container mx-auto px-4 z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -308,24 +314,24 @@ export default function Home() {
               </svg>
             </motion.div>
             <motion.h1
-              className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-orange-600 via-green-600 to-blue-600 bg-clip-text text-transparent"
+              className={`${heroDisplay.className} text-5xl md:text-7xl font-semibold mb-6 text-white drop-shadow-[0_0_32px_rgba(167,139,250,0.95)]`}
               animate={{ scale: [1, 1.02, 1] }}
               transition={{ duration: 3, repeat: Infinity }}
             >
-              Discover Waadi Kashmir
+              Curated Royal Journeys in Waadi Kashmir
             </motion.h1>
-            <p className="text-xl md:text-2xl text-gray-700 mb-8">
-              Where Heaven Meets Earth
+            <p className="text-xl md:text-2xl text-white/80 mb-8">
+              Elevated Himalayan escapes crafted for modern travelers
             </p>
-            <p className="text-lg text-gray-600 mb-12">
-              Curated journeys to Srinagar, Gulmarg, Pahalgam & beyond
+            <p className="text-lg text-white/70 mb-12">
+              Signature experiences across Srinagar, Gulmarg, Pahalgam, Leh–Ladakh and beyond
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
               <Button
                 size="lg"
                 onClick={handleCall}
-                className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-lg px-8 py-6"
+                className="bg-gradient-to-r from-[#a855f7] via-[#7c3aed] to-[#6366f1] hover:from-[#c084fc] hover:via-[#8b5cf6] hover:to-[#4f46e5] text-lg px-8 py-6 shadow-[0_0_30px_rgba(167,139,250,0.9)]"
               >
                 <Phone className="w-5 h-5 mr-2" />
                 Book Now
@@ -334,7 +340,7 @@ export default function Home() {
                 size="lg"
                 variant="outline"
                 onClick={() => document.getElementById('tours').scrollIntoView({ behavior: 'smooth' })}
-                className="text-lg px-8 py-6 border-2"
+                className="text-lg px-8 py-6 border-2 border-white/40 text-white hover:bg-white/10"
               >
                 Explore Tours
                 <ChevronRight className="w-5 h-5 ml-2" />
@@ -345,24 +351,24 @@ export default function Home() {
             <div className="grid grid-cols-3 gap-6 max-w-3xl mx-auto">
               <motion.div
                 whileHover={{ scale: 1.05 }}
-                className="bg-white/80 backdrop-blur-md rounded-2xl p-6 shadow-lg"
+                className="bg-white/5 backdrop-blur-xl rounded-2xl p-6 shadow-[0_0_40px_rgba(15,23,42,0.8)] border border-white/10"
               >
-                <div className="text-3xl md:text-4xl font-bold text-orange-600 mb-2">10K+</div>
-                <div className="text-sm md:text-base text-gray-600">Happy Travelers</div>
+                <div className="text-3xl md:text-4xl font-semibold text-white mb-2">10K+</div>
+                <div className="text-sm md:text-base text-white/70">Happy Travelers</div>
               </motion.div>
               <motion.div
                 whileHover={{ scale: 1.05 }}
-                className="bg-white/80 backdrop-blur-md rounded-2xl p-6 shadow-lg"
+                className="bg-white/5 backdrop-blur-xl rounded-2xl p-6 shadow-[0_0_40px_rgba(15,23,42,0.8)] border border-white/10"
               >
-                <div className="text-3xl md:text-4xl font-bold text-green-600 mb-2">500+</div>
-                <div className="text-sm md:text-base text-gray-600">Tours</div>
+                <div className="text-3xl md:text-4xl font-semibold text-white mb-2">500+</div>
+                <div className="text-sm md:text-base text-white/70">Signature Itineraries</div>
               </motion.div>
               <motion.div
                 whileHover={{ scale: 1.05 }}
-                className="bg-white/80 backdrop-blur-md rounded-2xl p-6 shadow-lg"
+                className="bg-white/5 backdrop-blur-xl rounded-2xl p-6 shadow-[0_0_40px_rgba(15,23,42,0.8)] border border-white/10"
               >
-                <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">98%</div>
-                <div className="text-sm md:text-base text-gray-600">5-Star Reviews</div>
+                <div className="text-3xl md:text-4xl font-semibold text-white mb-2">98%</div>
+                <div className="text-sm md:text-base text-white/70">5-Star Guest Ratings</div>
               </motion.div>
             </div>
           </motion.div>
@@ -374,9 +380,9 @@ export default function Home() {
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
         >
-          <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center p-2">
+          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center p-2">
             <motion.div
-              className="w-1.5 h-1.5 bg-gray-600 rounded-full"
+              className="w-1.5 h-1.5 bg-white rounded-full"
               animate={{ y: [0, 12, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
             />
@@ -385,7 +391,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 bg-white">
+      <section id="about" className="py-20 bg-transparent">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -393,34 +399,34 @@ export default function Home() {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto text-center"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">About Waadi Kashmir</h2>
-            <p className="text-lg text-gray-600 mb-8">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">About Waadi Kashmir</h2>
+            <p className="text-lg text-white/75 mb-8">
               Born in Srinagar, delivering authentic Kashmiri journeys. We are a licensed tour operator by J&K Tourism,
               dedicated to showcasing the unparalleled beauty of Kashmir to travelers worldwide.
             </p>
             <div className="grid md:grid-cols-4 gap-6 mt-12">
-              <Card className="border-orange-200 hover:shadow-lg transition">
+              <Card className="bg-white/5 border border-white/10 hover:shadow-2xl hover:bg-white/10 transition">
                 <CardContent className="p-6 text-center">
-                  <Award className="w-12 h-12 text-orange-500 mx-auto mb-4" />
-                  <h3 className="font-semibold mb-2">Licensed by J&K Tourism</h3>
+                  <Award className="w-12 h-12 text-purple-300 mx-auto mb-4" />
+                  <h3 className="font-semibold mb-2 text-white">Licensed by J&K Tourism</h3>
                 </CardContent>
               </Card>
-              <Card className="border-green-200 hover:shadow-lg transition">
+              <Card className="bg-white/5 border border-white/10 hover:shadow-2xl hover:bg-white/10 transition">
                 <CardContent className="p-6 text-center">
-                  <Phone className="w-12 h-12 text-green-500 mx-auto mb-4" />
-                  <h3 className="font-semibold mb-2">24/7 Support</h3>
+                  <Phone className="w-12 h-12 text-purple-300 mx-auto mb-4" />
+                  <h3 className="font-semibold mb-2 text-white">24/7 Support</h3>
                 </CardContent>
               </Card>
-              <Card className="border-blue-200 hover:shadow-lg transition">
+              <Card className="bg-white/5 border border-white/10 hover:shadow-2xl hover:bg-white/10 transition">
                 <CardContent className="p-6 text-center">
-                  <Users className="w-12 h-12 text-blue-500 mx-auto mb-4" />
-                  <h3 className="font-semibold mb-2">Expert Guides</h3>
+                  <Users className="w-12 h-12 text-purple-300 mx-auto mb-4" />
+                  <h3 className="font-semibold mb-2 text-white">Expert Guides</h3>
                 </CardContent>
               </Card>
-              <Card className="border-indigo-200 hover:shadow-lg transition">
+              <Card className="bg-white/5 border border-white/10 hover:shadow-2xl hover:bg-white/10 transition">
                 <CardContent className="p-6 text-center">
-                  <MapPin className="w-12 h-12 text-indigo-500 mx-auto mb-4" />
-                  <h3 className="font-semibold mb-2">Local Expertise</h3>
+                  <MapPin className="w-12 h-12 text-purple-300 mx-auto mb-4" />
+                  <h3 className="font-semibold mb-2 text-white">Local Expertise</h3>
                 </CardContent>
               </Card>
             </div>
@@ -429,7 +435,7 @@ export default function Home() {
       </section>
 
       {/* Tour Packages Section */}
-      <section id="tours" className="py-20 bg-gradient-to-b from-orange-50 to-white">
+      <section id="tours" className="py-20 bg-gradient-to-b from-white/5 via-purple-950/40 to-transparent">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -437,8 +443,8 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Tour Packages</h2>
-            <p className="text-lg text-gray-600">Explore our curated Kashmir experiences</p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">Tour Packages</h2>
+            <p className="text-lg text-white/75">Explore our curated Kashmir experiences</p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -452,27 +458,27 @@ export default function Home() {
                 whileHover={{ y: -10, scale: 1.02 }}
                 className="group"
               >
-                <Card className="overflow-hidden h-full hover:shadow-2xl transition-all duration-300 flex flex-col">
+                <Card className="overflow-hidden h-full hover:shadow-2xl transition-all duration-300 flex flex-col bg-white/5 border border-white/10 backdrop-blur-xl">
                   <div className="relative h-64 overflow-hidden shrink-0">
                     <img
                       src={tour.image}
                       alt={tour.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
-                    <div className="absolute top-4 right-4 bg-orange-500 text-white px-4 py-2 rounded-full font-bold">
+                    <div className="absolute top-4 right-4 bg-gradient-to-r from-[#a855f7] to-[#6366f1] text-white px-4 py-2 rounded-full font-bold shadow-lg">
                       {tour.price}
                     </div>
                   </div>
                   <CardContent className="p-6 flex flex-col flex-1">
-                    <h3 className="text-xl font-bold mb-2 text-gray-900">{tour.title}</h3>
-                    <p className="text-gray-600 mb-4 line-clamp-2">{tour.description}</p>
-                    <div className="flex items-center text-sm text-gray-500 mb-4">
+                    <h3 className="text-xl font-bold mb-2 text-white">{tour.title}</h3>
+                    <p className="text-white/75 mb-4 line-clamp-2">{tour.description}</p>
+                    <div className="flex items-center text-sm text-white/60 mb-4">
                       <Calendar className="w-4 h-4 mr-2" />
                       <span>{tour.duration}</span>
                     </div>
                     <div className="flex flex-wrap gap-2 mb-4">
                       {tour.features?.slice(0, 3).map((feature, i) => (
-                        <span key={i} className="text-xs bg-green-100 text-green-800 px-3 py-1 rounded-full">
+                        <span key={i} className="text-xs bg-white/10 text-white px-3 py-1 rounded-full">
                           {feature}
                         </span>
                       ))}
@@ -480,7 +486,7 @@ export default function Home() {
                     <div className="flex gap-2 mt-auto">
                       <Button
                         onClick={handleCall}
-                        className="flex-1 bg-gradient-to-r from-orange-500 to-green-500 hover:from-orange-600 hover:to-green-600"
+                        className="flex-1 bg-gradient-to-r from-[#a855f7] via-[#7c3aed] to-[#6366f1] hover:from-[#c084fc] hover:via-[#8b5cf6] hover:to-[#4f46e5] shadow-[0_0_24px_rgba(167,139,250,0.8)]"
                       >
                         <Phone className="w-4 h-4 mr-2" />
                         Call to Book
@@ -488,7 +494,7 @@ export default function Home() {
                       <Button
                         onClick={() => setViewingTour(tour)}
                         variant="outline"
-                        className="flex-1"
+                        className="flex-1 border-white/40 text-white hover:bg-white/10"
                       >
                         View Details
                       </Button>
@@ -502,12 +508,12 @@ export default function Home() {
 
         {/* Tour Detail Modal */}
         <Dialog open={!!viewingTour} onOpenChange={(open) => !open && setViewingTour(null)}>
-          <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
+          <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto bg-gradient-to-br from-[#0b021f] via-[#14012b] to-[#2b0658] text-white border border-white/10">
             <DialogHeader>
-              <DialogTitle className="text-2xl font-bold">{viewingTour?.title}</DialogTitle>
+              <DialogTitle className="text-2xl font-bold text-white">{viewingTour?.title}</DialogTitle>
             </DialogHeader>
             <div className="space-y-6">
-              <div className="relative w-full h-64 md:h-80 rounded-xl overflow-hidden shadow-lg border">
+              <div className="relative w-full h-64 md:h-80 rounded-xl overflow-hidden shadow-lg border border-white/10">
                 {viewingTour?.image ? (
                   <CldImage
                     src={viewingTour.image}
@@ -516,27 +522,27 @@ export default function Home() {
                     alt={viewingTour.title}
                   />
                 ) : (
-                  <div className="w-full h-full bg-gray-200 flex items-center justify-center">No Image</div>
+                  <div className="w-full h-full bg-white/5 flex items-center justify-center text-white/70">No Image</div>
                 )}
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-4">
                   <div>
-                    <h4 className="text-sm font-semibold uppercase text-gray-400 mb-1">Details</h4>
+                    <h4 className="text-sm font-semibold uppercase text-white/60 mb-1">Details</h4>
                     <div className="flex gap-4">
-                      <Badge variant="secondary" className="px-3 py-1 text-sm bg-orange-100 text-orange-800 border-none">
+                      <Badge variant="secondary" className="px-3 py-1 text-sm bg-white/10 text-white border-none">
                         {viewingTour?.price}
                       </Badge>
-                      <Badge variant="secondary" className="px-3 py-1 text-sm bg-blue-100 text-blue-800 border-none">
+                      <Badge variant="secondary" className="px-3 py-1 text-sm bg-white/10 text-white border-none">
                         {viewingTour?.duration}
                       </Badge>
                     </div>
                   </div>
 
                   <div>
-                    <h4 className="text-sm font-semibold uppercase text-gray-400 mb-2">Description</h4>
-                    <p className="text-gray-700 whitespace-pre-wrap leading-relaxed text-sm md:text-base">
+                    <h4 className="text-sm font-semibold uppercase text-white/60 mb-2">Description</h4>
+                    <p className="text-white/80 whitespace-pre-wrap leading-relaxed text-sm md:text-base">
                       {viewingTour?.description}
                     </p>
                   </div>
@@ -544,39 +550,39 @@ export default function Home() {
 
                 <div className="space-y-4">
                   <div>
-                    <h4 className="text-sm font-semibold uppercase text-gray-400 mb-2">Highlights</h4>
+                    <h4 className="text-sm font-semibold uppercase text-white/60 mb-2">Highlights</h4>
                     <div className="flex flex-wrap gap-2">
                       {viewingTour?.features?.length > 0 ? (
                         viewingTour.features.map((feature, idx) => (
-                          <Badge key={idx} variant="outline" className="bg-green-50 text-green-700 border-green-100 px-3 py-1">
+                          <Badge key={idx} variant="outline" className="bg-white/5 text-white border-white/20 px-3 py-1">
                             {feature}
                           </Badge>
                         ))
                       ) : (
-                        <span className="text-gray-400 italic text-sm">No specific highlights listed</span>
+                        <span className="text-white/50 italic text-sm">No specific highlights listed</span>
                       )}
                     </div>
                   </div>
 
-                  <div className="bg-blue-50 p-4 rounded-xl border border-blue-100">
-                    <h4 className="text-blue-900 font-bold mb-2">Need a Custom Itinerary?</h4>
-                    <p className="text-blue-700 text-sm mb-4">We can customize this tour to fit your preferences and budget perfectly.</p>
-                    <Button onClick={handleCall} className="w-full bg-blue-600 hover:bg-blue-700">
+                  <div className="bg-white/5 p-4 rounded-xl border border-white/15">
+                    <h4 className="text-white font-bold mb-2">Need a Custom Itinerary?</h4>
+                    <p className="text-white/75 text-sm mb-4">We can customize this tour to fit your preferences and budget perfectly.</p>
+                    <Button onClick={handleCall} className="w-full bg-gradient-to-r from-[#a855f7] to-[#6366f1] hover:from-[#c084fc] hover:to-[#4f46e5] text-white shadow-[0_0_22px_rgba(167,139,250,0.8)]">
                       Enquire Now
                     </Button>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="flex justify-end pt-4 border-t">
-              <Button onClick={() => setViewingTour(null)} variant="outline">Close</Button>
+            <div className="flex justify-end pt-4 border-t border-white/10">
+              <Button onClick={() => setViewingTour(null)} variant="outline" className="border-white/40 text-white hover:bg-white/10">Close</Button>
             </div>
           </DialogContent>
         </Dialog>
       </section>
 
       {/* Destinations Map Section */}
-      <section id="destinations\" className="py-20 bg-white">
+      <section id="destinations" className="py-20 bg-transparent">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -584,16 +590,16 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Popular Destinations</h2>
-            <p className="text-lg text-gray-600">Click to explore Kashmir's treasures</p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">Popular Destinations</h2>
+            <p className="text-lg text-white/75">Click to explore Kashmir's treasures</p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { name: 'Srinagar', icon: '🏛️', color: 'from-orange-500 to-orange-600' },
-              { name: 'Gulmarg', icon: '⛷️', color: 'from-blue-500 to-blue-600' },
-              { name: 'Pahalgam', icon: '🏔️', color: 'from-green-500 to-green-600' },
-              { name: 'Leh-Ladakh', icon: '🏞️', color: 'from-purple-500 to-purple-600' }
+              { name: 'Srinagar', icon: '🏛️', color: 'from-[#a855f7] to-[#6366f1]' },
+              { name: 'Gulmarg', icon: '⛷️', color: 'from-[#6366f1] to-[#22d3ee]' },
+              { name: 'Pahalgam', icon: '🏔️', color: 'from-[#4c1d95] to-[#0ea5e9]' },
+              { name: 'Leh-Ladakh', icon: '🏞️', color: 'from-[#ec4899] to-[#a855f7]' }
             ].map((dest, index) => (
               <motion.div
                 key={dest.name}
@@ -605,11 +611,11 @@ export default function Home() {
                 onClick={handleCall}
                 className="cursor-pointer"
               >
-                <Card className={`bg-gradient-to-br ${dest.color} text-white hover:shadow-2xl transition-all`}>
+                <Card className={`bg-gradient-to-br ${dest.color} text-white hover:shadow-2xl transition-all border border-white/10`}>
                   <CardContent className="p-8 text-center">
                     <div className="text-6xl mb-4">{dest.icon}</div>
                     <h3 className="text-2xl font-bold">{dest.name}</h3>
-                    <p className="text-sm mt-2 opacity-90\">Click to inquire</p>
+                    <p className="text-sm mt-2 opacity-90">Click to inquire</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -619,7 +625,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section id="testimonials" className="py-20 bg-gradient-to-b from-green-50 to-white">
+      <section id="testimonials" className="py-20 bg-gradient-to-b from-transparent via-purple-950/30 to-transparent">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -627,8 +633,8 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">What Our Travelers Say</h2>
-            <p className="text-lg text-gray-600">Real experiences from real people</p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">What Our Travelers Say</h2>
+            <p className="text-lg text-white/75">Real experiences from real people</p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -640,7 +646,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className="h-full hover:shadow-xl transition-shadow">
+                <Card className="h-full hover:shadow-2xl transition-shadow bg-white/5 border border-white/10 backdrop-blur-xl">
                   <CardContent className="p-6">
                     <div className="flex items-center mb-4">
                       <img
@@ -649,8 +655,8 @@ export default function Home() {
                         className="w-16 h-16 rounded-full mr-4 object-cover"
                       />
                       <div>
-                        <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
-                        <p className="text-sm text-gray-600">{testimonial.location}</p>
+                        <h4 className="font-semibold text-white">{testimonial.name}</h4>
+                        <p className="text-sm text-white/70">{testimonial.location}</p>
                         <div className="flex mt-1">
                           {[...Array(testimonial.rating)].map((_, i) => (
                             <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
@@ -658,8 +664,8 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-                    <p className="text-gray-700 italic">"{testimonial.text}"</p>
-                    <p className="text-sm text-green-600 mt-3 font-medium">Tour: {testimonial.tour}</p>
+                    <p className="text-white/80 italic">"{testimonial.text}"</p>
+                    <p className="text-sm text-white/70 mt-3 font-medium">Tour: {testimonial.tour}</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -669,7 +675,7 @@ export default function Home() {
       </section>
 
       {/* Gallery Section */}
-      <section id="gallery" className="py-20 bg-white">
+      <section id="gallery" className="py-20 bg-transparent">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -677,8 +683,8 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Photo Gallery</h2>
-            <p className="text-lg text-gray-600">Glimpses of Kashmir's beauty</p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">Photo Gallery</h2>
+            <p className="text-lg text-white/75">Glimpses of Kashmir's beauty</p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -710,7 +716,7 @@ export default function Home() {
       </section>
 
       {/* Blog / Posts Section */}
-      <section id="posts" className="py-20 bg-gradient-to-b from-white to-blue-50">
+      <section id="posts" className="py-20 bg-gradient-to-b from-transparent via-purple-950/30 to-transparent">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -718,10 +724,10 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
               Travel Stories & Blogs
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-white/75">
               Latest updates, tips & Kashmir experiences
             </p>
           </motion.div>
@@ -735,7 +741,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className="overflow-hidden hover:shadow-2xl transition-all h-full flex flex-col">
+                <Card className="overflow-hidden hover:shadow-2xl transition-all h-full flex flex-col bg-white/5 border border-white/10 backdrop-blur-xl">
                   <div className="h-56 overflow-hidden shrink-0">
                     <img
                       src={post.image}
@@ -745,22 +751,22 @@ export default function Home() {
                   </div>
 
                   <CardContent className="p-6 flex flex-col flex-1">
-                    <h3 className="text-xl font-bold mb-2 text-gray-900">
+                    <h3 className="text-xl font-bold mb-2 text-white">
                       {post.title}
                     </h3>
 
-                    <p className="text-gray-600 mb-4 line-clamp-3">
+                    <p className="text-white/75 mb-4 line-clamp-3">
                       {(post.content || '').slice(0, 180)}{(post.content || '').length > 180 ? '...' : ''}
                     </p>
 
-                    <div className="flex items-center justify-between mt-auto pt-4 border-t">
-                      <div className="flex items-center text-xs text-gray-500">
+                    <div className="flex items-center justify-between mt-auto pt-4 border-t border-white/10">
+                      <div className="flex items-center text-xs text-white/70">
                         <Users className="w-3 h-3 mr-1" />
                         {post.author || 'Admin'}
                       </div>
                       <Button
                         variant="link"
-                        className="px-0 text-orange-600 font-semibold h-auto"
+                        className="px-0 text-white font-semibold h-auto"
                         onClick={() => setViewingPost(post)}
                       >
                         Read More →
@@ -775,16 +781,16 @@ export default function Home() {
 
         {/* Blog Post Detail Modal */}
         <Dialog open={!!viewingPost} onOpenChange={(open) => !open && setViewingPost(null)}>
-          <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
+          <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto bg-gradient-to-br from-[#0b021f] via-[#14012b] to-[#2b0658] text-white border border-white/10">
             <DialogHeader>
-              <DialogTitle className="text-2xl md:text-3xl font-bold leading-tight">{viewingPost?.title}</DialogTitle>
+              <DialogTitle className="text-2xl md:text-3xl font-bold leading-tight text-white">{viewingPost?.title}</DialogTitle>
               <div className="flex items-center gap-3 mt-4">
-                <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-700 text-xs font-bold">
+                <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white text-xs font-bold">
                   {viewingPost?.author?.[0] || 'A'}
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-gray-900">{viewingPost?.author || 'Admin'}</p>
-                  <p className="text-xs text-gray-500">
+                  <p className="text-sm font-semibold text-white">{viewingPost?.author || 'Admin'}</p>
+                  <p className="text-xs text-white/70">
                     {viewingPost?.createdAt ? new Date(viewingPost.createdAt).toLocaleDateString(undefined, { dateStyle: 'long' }) : 'Travel Stories'}
                   </p>
                 </div>
@@ -805,26 +811,26 @@ export default function Home() {
               </div>
 
               <div className="space-y-6">
-                <div className="bg-orange-50/50 p-6 rounded-2xl border border-orange-100 relative italic text-gray-700">
-                  <Quote className="absolute -top-3 -left-2 w-8 h-8 text-orange-200 opacity-60" />
+                <div className="bg-white/5 p-6 rounded-2xl border border-white/15 relative italic text-white/80">
+                  <Quote className="absolute -top-3 -left-2 w-8 h-8 text-purple-300 opacity-60" />
                   <p className="relative z-10 text-base md:text-lg leading-relaxed">
                     {(viewingPost?.content || '').slice(0, 220)}{(viewingPost?.content || '').length > 220 ? '...' : ''}
                   </p>
                 </div>
 
-                <div className="prose prose-blue max-w-none text-gray-800 whitespace-pre-wrap leading-relaxed bg-white border rounded-2xl p-6 md:p-10 shadow-sm min-h-[250px]">
-                  <h3 className="text-xl font-bold mb-6 flex items-center gap-2 text-gray-900">
-                    <ScrollText className="w-6 h-6 text-green-600" />
+                <div className="prose max-w-none text-white whitespace-pre-wrap leading-relaxed bg-white/5 border border-white/15 rounded-2xl p-6 md:p-10 shadow-sm min-h-[250px]">
+                  <h3 className="text-xl font-bold mb-6 flex items-center gap-2 text-white">
+                    <ScrollText className="w-6 h-6 text-purple-300" />
                     Complete Experience
                   </h3>
-                  <div className="text-sm md:text-base text-gray-700 space-y-4">
+                  <div className="text-sm md:text-base text-white/80 space-y-4">
                     {viewingPost?.content}
                   </div>
                 </div>
               </div>
             </div>
-            <div className="flex justify-end pt-4 border-t mt-4">
-              <Button onClick={() => setViewingPost(null)} variant="outline">Close Reading</Button>
+            <div className="flex justify-end pt-4 border-t border-white/10 mt-4">
+              <Button onClick={() => setViewingPost(null)} variant="outline" className="border-white/40 text-white hover:bg-white/10">Close Reading</Button>
             </div>
           </DialogContent>
         </Dialog>
@@ -832,7 +838,7 @@ export default function Home() {
 
 
       {/* Booking Form Section */}
-      <section id="booking" className="py-20 bg-gradient-to-b from-blue-50 to-white">
+      <section id="booking" className="py-20 bg-gradient-to-b from-transparent via-purple-950/30 to-transparent">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -841,32 +847,32 @@ export default function Home() {
             className="max-w-2xl mx-auto"
           >
             <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Book Your Journey</h2>
-              <p className="text-lg text-gray-600">Fill the form and we'll contact you shortly</p>
+              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">Book Your Journey</h2>
+              <p className="text-lg text-white/75">Fill the form and we'll contact you shortly</p>
             </div>
 
-            <Card className="shadow-2xl">
+            <Card className="shadow-2xl bg-white/5 border border-white/10 backdrop-blur-xl">
               <CardContent className="p-8">
                 <form onSubmit={handleBooking} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Name *</label>
+                      <label className="block text-sm font-medium text-white mb-2">Name *</label>
                       <Input name="name" required placeholder="Your name" className="w-full" />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Email *</label>
+                      <label className="block text-sm font-medium text-white mb-2">Email *</label>
                       <Input name="email" type="email" required placeholder="your@email.com" className="w-full" />
                     </div>
                   </div>
 
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Phone *</label>
+                      <label className="block text-sm font-medium text-white mb-2">Phone *</label>
                       <Input name="phone" required placeholder="+91 9999999999" className="w-full" />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Tour Type *</label>
-                      <select name="tourType" required className="w-full h-10 px-3 border border-gray-300 rounded-md">
+                      <label className="block text-sm font-medium text-white mb-2">Tour Type *</label>
+                      <select name="tourType" required className="w-full h-10 px-3 border border-white/30 bg-white/5 text-white rounded-md">
                         <option value="">Select Tour</option>
                         {tours.map(tour => (
                           <option key={tour.id} value={tour.title}>{tour.title}</option>
@@ -877,29 +883,29 @@ export default function Home() {
 
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Dates</label>
+                      <label className="block text-sm font-medium text-white mb-2">Dates</label>
                       <Input name="dates" placeholder="e.g., Dec 15-20, 2024" className="w-full" />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Guests</label>
+                      <label className="block text-sm font-medium text-white mb-2">Guests</label>
                       <Input name="guests" type="number" defaultValue="2" min="1" className="w-full" />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                    <label className="block text-sm font-medium text-white mb-2">Message</label>
                     <Textarea name="message" placeholder="Any special requirements..." rows={4} className="w-full" />
                   </div>
 
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-orange-500 to-green-500 hover:from-orange-600 hover:to-green-600 text-lg py-6"
+                    className="w-full bg-gradient-to-r from-[#a855f7] via-[#7c3aed] to-[#6366f1] hover:from-[#c084fc] hover:via-[#8b5cf6] hover:to-[#4f46e5] text-lg py-6 shadow-[0_0_26px_rgba(167,139,250,0.9)]"
                   >
                     {isSubmitting ? 'Submitting...' : 'Submit Booking Request'}
                   </Button>
 
-                  <p className="text-sm text-gray-500 text-center">
+                  <p className="text-sm text-white/60 text-center">
                     By submitting, you agree to receive booking confirmation via email & SMS
                   </p>
                 </form>
@@ -910,7 +916,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gradient-to-br from-gray-900 via-indigo-900 to-gray-900 text-white py-12">
+      <footer className="bg-gradient-to-b from-transparent via-purple-950/30 to-transparent py-12 border-t-4 border-purple-700">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             <div>
